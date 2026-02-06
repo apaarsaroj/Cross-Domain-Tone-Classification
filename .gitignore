@@ -1,0 +1,94 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model checkpoints and weights
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pb
+
+# Training logs and outputs
+logs/
+*.log
+training_log.txt
+training_v2_log.txt
+
+# Data files (raw datasets)
+data/datasetA/
+data/datasetB/
+data/datasetC/
+data/*.csv
+data/*.txt
+data/*.json
+# Keep processed data structure but not large files
+data/processed/*.csv
+
+# Large intermediate results
+*.pkl
+*.pickle
+*.hdf5
+
+# Results directory: keep images and markdown reports, exclude data files
+results/*.csv
+results/*.json
+results/*.txt
+# Keep: results/*.png, results/*.md (visualizations and reports)
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Conda
+.conda/
+
+# Hugging Face cache (optional, uncomment if needed)
+# .cache/huggingface/
+
+# Exclude workflow files with Chinese content
+WORKFLOW_V2.md
+tasks.txt

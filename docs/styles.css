@@ -1,0 +1,145 @@
+:root {
+  --ink: #1f1a17;
+  --muted: #4b4b4b;
+  --accent: #d95d39;
+  --accent-2: #2f6f7e;
+  --paper: #fff8f2;
+  --paper-2: #f2ebe6;
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 10% -10%, #f8d9c5, transparent),
+              radial-gradient(1000px 500px at 90% 10%, #cfe7e4, transparent),
+              linear-gradient(180deg, #fff8f2, #f2ebe6 70%);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Trebuchet MS", sans-serif;
+}
+
+header {
+  padding: 64px 24px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+}
+
+h1 {
+  font-family: "DM Serif Display", "Georgia", serif;
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metric {
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.metric h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.metric p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 24px 64px;
+}
+
+section {
+  margin: 32px 0;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+  font-family: "DM Serif Display", "Georgia", serif;
+  margin: 0 0 10px;
+}
+
+ul {
+  margin: 8px 0 0 16px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.85rem;
+  margin-right: 6px;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 24px;
+}
+
+.fade-in {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+}

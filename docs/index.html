@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cross-Domain Tone Classification</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div class="fade-in">
+        <h1>Cross-Domain Tone Classification</h1>
+        <p class="subtitle">
+          A student-built ML project that learns how to translate two different label systems
+          into one shared tone space: <strong>Polite</strong>, <strong>Professional</strong>, and <strong>Casual</strong>.
+          The goal is simple: make models trained on different datasets “speak the same language.”
+        </p>
+        <div>
+          <span class="badge">BERT</span>
+          <span class="badge">Label Mapping</span>
+          <span class="badge">Calibration Set</span>
+          <span class="badge">NLP Transfer</span>
+        </div>
+      </div>
+      <div class="card fade-in">
+        <h2>Results Snapshot</h2>
+        <p class="subtitle">Test set: 4,800 samples</p>
+        <div class="metrics">
+          <div class="metric">
+            <h3>Model B Accuracy</h3>
+            <p>54.58%</p>
+          </div>
+          <div class="metric">
+            <h3>Model B Macro F1</h3>
+            <p>0.5337</p>
+          </div>
+          <div class="metric">
+            <h3>Model C Accuracy</h3>
+            <p>46.50%</p>
+          </div>
+          <div class="metric">
+            <h3>Model C Macro F1</h3>
+            <p>0.4635</p>
+          </div>
+        </div>
+        <p class="subtitle">
+          Model B wins despite 3x fewer training samples, showing that domain alignment matters
+          more than raw dataset size.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="fade-in">
+      <h2>Problem in Human Terms</h2>
+      <p>
+        Tone datasets often use different labels. One dataset might say “apologetic,” another says
+        “sad,” but both could map to a polite or professional tone. I built a pipeline that learns
+        this translation automatically using a small calibration split, instead of hand‑coding rules.
+      </p>
+    </section>
+
+    <section class="fade-in">
+      <h2>What I Built</h2>
+      <div class="grid-2">
+        <div>
+          <ul>
+            <li>Two BERT models trained on original labels (Tone Analysis, GoEmotions).</li>
+            <li>A calibration‑set mapping step to align labels with Polite/Professional/Casual.</li>
+            <li>Evaluation and error analysis with confusion matrices.</li>
+            <li>Visuals that explain training dynamics and label imbalance.</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Dataset A: ground‑truth tone rewrites.</li>
+            <li>Dataset B: 30 tone labels, 2,684 training samples.</li>
+            <li>Dataset C: 28 emotion labels, 8,044 training samples.</li>
+            <li>Greedy mapping optimized by macro F1 on calibration set.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2>Key Visuals</h2>
+      <div class="grid-2">
+        <div>
+          <img src="../results/confusion_matrix_model_b_v2.png" alt="Model B confusion matrix" />
+        </div>
+        <div>
+          <img src="../results/confusion_matrix_model_c_v2.png" alt="Model C confusion matrix" />
+        </div>
+      </div>
+    </section>
+
+    <section class="fade-in">
+      <h2>Why Model B Did Better</h2>
+      <ul>
+        <li>Dataset B labels are closer to tone language than emotion labels.</li>
+        <li>Dataset C is heavily imbalanced, which hurts generalization.</li>
+        <li>More data didn’t help when the domain was misaligned.</li>
+      </ul>
+    </section>
+
+    <section class="fade-in">
+      <h2>What I Learned</h2>
+      <ul>
+        <li>Small, well‑matched datasets can beat larger, misaligned ones.</li>
+        <li>Calibration data can make cross‑label transfer practical.</li>
+        <li>Visual diagnostics are essential to explain model behavior.</li>
+      </ul>
+    </section>
+
+    <section class="fade-in">
+      <h2>Reproducibility</h2>
+      <p>Run end‑to‑end in a few commands:</p>
+      <pre><code>python src/02_preprocess_data_v2.py
+python src/04_run_training_v2.py
+python src/10_evaluate_model_b.py
+python src/11_evaluate_model_c.py</code></pre>
+      <p class="subtitle">Full instructions are in `README.md`.</p>
+    </section>
+
+    <div class="footer">
+      Built by a student focusing on clarity, reproducibility, and human‑friendly explanations.
+    </div>
+  </main>
+</body>
+</html>
