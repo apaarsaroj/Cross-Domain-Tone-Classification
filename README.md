@@ -1,12 +1,11 @@
-# Cross-Domain Tone Classification (Portfolio Version)
-
+# Cross-Domain Tone Classification
 A student project that explores how to **transfer models trained on different label systems** into a **shared, human‑meaningful target**: `Polite`, `Professional`, `Casual`.
 
 Instead of guessing label mappings by hand, I learned the mapping from a small **calibration split** of the target dataset. This makes the system more honest about uncertainty and more defensible in real settings.
 
 ---
 
-## Why This Matters (In Plain Language)
+## Why This Matters
 
 When datasets label text in different ways (tone vs. emotions), models can’t be compared or combined directly. I designed a pipeline that:
 
